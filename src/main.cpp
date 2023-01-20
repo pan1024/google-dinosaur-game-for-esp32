@@ -187,7 +187,6 @@ void game_init()//游戏初始化
 }
 void game_start()//开始小恐龙游戏
 {
- 
   static bool game_start=false;//游戏开始标志
   bool game_status;//游戏状态标志
   bool max_score_once=true;
