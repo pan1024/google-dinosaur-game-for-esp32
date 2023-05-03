@@ -1,6 +1,7 @@
 #include <TFT_eSPI.h>
 #include <SPI.h>
-#include <little_fs/little_fs.h>
+#include <LittleFS.h>
+#include <FileSystem/FileSystem.h>
 #include <dinosaur_model/dinosaur_model.h>//恐龙模块
 
 #define UP       8//UP
@@ -67,7 +68,6 @@ void pushImage(Object obj)//包装绘制方法
 }
 bool draw()//绘制整个游戏画面
 {
-
   sprite.createSprite(160,80);
   draw_road();
   draw_obstacle();
@@ -87,9 +87,9 @@ void draw_road()//绘制路面
 }
 void draw_dinosaur()//绘制小恐龙
 {
-  static bool flag=true;//恐龙变换
+  static bool flag=true;
   unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis_draw_dinasour >= 100) {
+  if (currentMillis - previousMillis_draw_dinasour >= 100) {//恐龙变换
     previousMillis_draw_dinasour = currentMillis;
     flag=!flag;
   }
